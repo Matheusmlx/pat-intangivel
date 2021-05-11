@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: patrimonio-intangivel
+application:
+  version: @project.version@
+  name: @project.name@
+
+hal:
+  config:
+    migration:
+      basePath: /changelog/configuration/master.yml

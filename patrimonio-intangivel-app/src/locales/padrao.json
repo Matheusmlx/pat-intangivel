@@ -1,0 +1,90 @@
+{
+    "main":{
+       "pages":{
+           "patrimonio":{
+               "edicao":{
+                   "dados-de-entrada":{
+                       "campos":{
+                            "campo-nome":
+                            {
+                                "description":"Nome do ",
+                                "required":true
+                            },
+                            "campo-orgao":{
+                                "description":"Órgão",
+                                "required":true
+                            },
+                            "campo-setor":{
+                                "description":"Setor",
+                                "required":true
+                            },
+                            "campo-descricao":{
+                                "description":"Descrição",
+                                "required":true
+                            },
+                            "campo-situacao-intangivel":{
+                                "description":"Situação do Intangível",
+                                "required":true
+                            },
+                            "campo-valorAquisicao":{
+                                "description":"Valor de Aquisição",
+                                "required":true
+                            },
+                            "campo-reconhecimento":{
+                                "description":"Reconhecimento",
+                                "required":true
+                            },
+                            "campo-dataAquisicao":{
+                                "description":"Data de Aquisição",
+                                "required":false
+                            },
+                            "campo-dataAtivacao":{
+                                "description":"Data de ativação",
+                                "required":true
+                            },
+                            "campo-dataNL":{
+                                "description":"Data da NL",
+                                "required":true
+                            },
+                            "campo-numeroNL":{
+                                "description":"Número da NL",
+                                "required":true
+                            },
+                            "campo-fornecedor":{
+                                "description":"Fornecedor",
+                                "required":false
+                            },
+                            "campo-vencimentoLicenca":{
+                                "description":"Vencimento da Licença",
+                                "required":true
+                            },
+                            "campo-vidaUtilIndefinida":{
+                                "description":"Vida Útil Indefinida",
+                                "required":false
+                            },
+                            "campo-contaContabil":{
+                                "description":"Conta Contábil",
+                                "required":false
+                            }
+                       },
+                       "tooltips":{
+                           "tooltip-setor":{
+                               "description":"Este campo contém o equivalente a Unidades Organizacionais e Setores.O campo será ativado somente quando o usuário escolher um órgão."
+                           },
+                           "tooltip-situacaoIntangivel":{
+                               "description":"Este campo informa se o bem ainda está em processo de desenvolvimento. Intangiveis em desenvolvimento não podem ser colocados em uso, portanto não devem ser ativados e amortizados."
+                           },
+                           "tooltip-reconhecimento":{
+                               "description":"De acordo com o MCASP, o reconhecimento define como o bem foi adquirido."
+                           },
+                           "tooltip-vencimentoLicenca":{
+                               "description":"A situação deste campo é determinada pelo tipo de reconhecimento. Aquisições separadas têm contrato, portanto tem a informação de vencimento da licença.Os demais tipos têm vida útil determinada pelo Estado de"
+                           }
+                       }
+
+                   }
+               }
+           }
+       }
+    }
+}

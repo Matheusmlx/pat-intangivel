@@ -1,0 +1,17 @@
+[
+    {
+        "key": "az.patrimonio-intangivel.rotulos-personalizados.i18n.VISUALIZACAO.campos.orgao.nome",
+        "value": "Órgão"
+    },
+
+    {
+        "key": "az.patrimonio-intangivel.rotulos-personalizados.i18n.DADOS_DE_ENTRADA_EDICAO.campos.valorEntrada.nome",
+        "value": "Valor De Entrada"
+    },
+
+
+    {
+        "key": "az.patrimonio-intangivel.rotulos-personalizados.i18n.DADOS_DE_ENTRADA_EDICAO.campos.valorEntrada.tooltip",
+        "value": "O valor de entrada é igual ao valor de aquisição caso o patrimônio não tenha sido movimentado. Caso ele tenha sido movimentado, o valor de entrada é o valor líquido do bem no momento da movimentação."
+    }
+]

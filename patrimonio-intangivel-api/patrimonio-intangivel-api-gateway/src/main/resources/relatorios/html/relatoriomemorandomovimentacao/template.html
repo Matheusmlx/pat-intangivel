@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Memorando de Ativação de Patrimônio</title>
+
+    <link rel="stylesheet" type="text/css" media="all" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../css/memorandomovimentacao.css"/>
+</head>
+
+<body>
+<div class="header" th:include="${templateHeader}"></div>
+
+<div class="titulos">
+    <h1 class="titulo">
+        <strong>Memorando de <span th:text="${relatorio.movimentacao.Tipo}"></span></strong>
+    </h1>
+
+    <p th:text="${relatorio.orgaoOrigem}"></p>
+    <p th:text="${relatorio.mesAno}"></p>
+</div>
+
+<div class="logo-contabil">
+    <img th:src=" ${relatorio.patrimonio.numero} == '-' ? |data:image/png;base64,${logoContabil}| : ''"
+         alt="Documento sem valor contábil"/>
+</div>
+
+<h3>DADOS GERAIS</h3>
+<table class="tabela-memorando" cellpadding="2">
+    <tr>
+        <td colspan="2"><strong>N° Memorando: </strong> <span th:text="${relatorio.numeroAno}"></span></td>
+        <td colspan="2"><strong>Órgao Destino: </strong> <span th:text="${relatorio.OrgaoDestino}"></span></td>
+        <td colspan="8"><strong>Recebido em: </strong> <span th:text="${relatorio.movimentacao.dataRecebido}"></span></td>
+    </tr>
+    <tr>
+        <td colspan="2"><strong>N° Movimentação: </strong> <span th:text="${relatorio.movimentacao.codigo}"></span></td>
+        <td colspan="10"><strong>Enviado em: </strong> <span th:text="${relatorio.movimentacao.dataEnvio}"></span></td>
+    </tr>
+     <tr>
+         <td colspan="12"><strong>Motivo/Observações: </strong> <span th:text="${relatorio.movimentacao.motivo}"></span></td>
+     </tr>
+    </tr>
+</table>
+
+<h3>DADOS CONTÁBEIS</h3>
+<table class="tabela-memorando">
+
+    <thead>
+        <strong><th colspan="12" th:text="${relatorio.contaContabil}"></th></strong>
+    </thead>
+
+   <tr>
+       <td colspan="4"><strong>N° Patrimônio</strong></td>
+       <td colspan="2"><strong>Nome Patrimônio</strong></td>
+       <td colspan="2"><strong>Vl. de Entrada</strong></td>
+       <td colspan="2"><strong>Amortização Acumulada</strong></td>
+       <td colspan="2"><strong>Valor Líquido</strong></td>
+   </tr>
+    <tr>
+        <td colspan="4" th:text="${relatorio.patrimonio.numero}"></td>
+        <td colspan="2" th:text="${relatorio.patrimonio.nome}"></td>
+        <td colspan="2" th:text="${df.format(relatorio.patrimonio.valorEntrada)} ? ${df.format(relatorio.patrimonio.valorEntrada)} : '-'"></td>
+        <td colspan="2" th:text="${df.format(relatorio.patrimonio.valorAmortizadoAcumulado)} ? ${df.format(relatorio.patrimonio.valorAmortizadoAcumulado)} : '-'"></td>
+        <td colspan="2" th:text="${df.format(relatorio.patrimonio.valorLiquido)} ? ${df.format(relatorio.patrimonio.valorLiquido)} : '-'"></td>
+
+    </tr>
+
+    <tr>
+        <strong> <td colspan="6" >Total da Conta:</td> </strong>
+        <strong> <td colspan="2"  th:text="${df.format(relatorio.patrimonio.valorEntrada)} ? ${df.format(relatorio.patrimonio.valorEntrada)} : '-'"></td> </strong>
+        <strong> <td colspan="2"  th:text="${df.format(relatorio.patrimonio.valorAmortizadoAcumulado)} ? ${df.format(relatorio.patrimonio.valorAmortizadoAcumulado)} : '-'"></td> </strong>
+        <strong> <td colspan="2"  th:text="${df.format(relatorio.patrimonio.valorLiquido)} ? ${df.format(relatorio.patrimonio.valorLiquido)} : '-'"></td> </strong>
+    </tr>
+</table>
+
+<table class="tabela-memorando">
+    <tr>
+        <th colspan="6" >Total do Órgão:</th>
+        <th colspan="2" style="width: 17.80%" th:text="${df.format(relatorio.patrimonio.valorEntrada)} ? ${df.format(relatorio.patrimonio.valorEntrada)} : '-'"></th>
+        <th colspan="2" style="width: 28.12%"th:text="${df.format(relatorio.patrimonio.valorAmortizadoAcumulado)} ? ${df.format(relatorio.patrimonio.valorAmortizadoAcumulado)} : '-'"></th>
+        <th colspan="2" style="width: 17.0%" th:text="${df.format(relatorio.patrimonio.valorLiquido)} ? ${df.format(relatorio.patrimonio.valorLiquido)} : '-'"></th>
+    </tr>
+</table>
+
+<table class="assinatura">
+    <tr>
+        <td align="center">______________________________</td>
+        <td align="center">______________________________</td>
+        <td align="center">______________________________</td>
+    </tr>
+    <tr>
+        <td align="center">Nome/Matrícula</td>
+        <td align="center">Nome/Matrícula</td>
+        <td align="center">Nome/Matrícula</td>
+    </tr>
+    <tr>
+        <td align="center">______________________________</td>
+        <td align="center">______________________________</td>
+        <td align="center">______________________________</td>
+    </tr>
+    <tr>
+        <td align="center">Data</td>
+        <td align="center">Data</td>
+        <td align="center">Data</td>
+    </tr>
+    <tr>
+        <td align="center">______________________________</td>
+        <td align="center">______________________________</td>
+        <td align="center">______________________________</td>
+    </tr>
+    <tr>
+        <td align="center">Assinatura</td>
+        <td align="center">Assinatura</td>
+        <td align="center">Assinatura</td>
+    </tr>
+
+</table>
+<div class="mensagem-rodape">
+    <p th:text="${relatorio.mensagemRodapeMemorandoMovimentacao}"></p>
+</div>
+
+</body>
+</html>

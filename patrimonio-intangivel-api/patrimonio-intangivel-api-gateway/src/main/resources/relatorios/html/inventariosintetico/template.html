@@ -1,0 +1,53 @@
+<!DOCTYPE>
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Inventário Sintético de Intangíveis</title>
+
+    <link rel="stylesheet" type="text/css" media="all" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../css/sintetico.css"/>
+</head>
+
+<body>
+
+<div class="header" th:include="${templateHeader}"></div>
+
+<div class="titulos">
+    <h1 class="titulo">
+        <strong>Inventário Sintético de Intangíveis</strong>
+    </h1>
+    <p th:text="${relatorio.nomeOrgao}"></p>
+    <p th:text="${relatorio.dataRelatorio}"></p>
+</div>
+
+    <table class="tabela-sintetico">
+    <tr>
+        <th colspan="4" >Conta Contábil</th>
+        <th colspan="1" >Total de Bens</th>
+        <th colspan="1" >Valor Entrada</th>
+        <th colspan="1" >Amort. Mensal</th>
+        <th colspan="1" >Amort. Acumulada</th>
+        <th colspan="1" >Valor Líquido</th>
+    </tr>
+        <tr th:each="conta : ${relatorio.contasContabeis}">
+            <td colspan="4" th:text="${conta.nome}"></td>
+            <td colspan="1" th:text="${conta.totalDeBens}"></td>
+            <td colspan="1" th:text="${df.format(conta.valorAquisicao)}"></td>
+            <td colspan="1" th:text="${conta.tipo == 'AMORTIZAVEL' or (conta.tipo != 'AMORTIZAVEL' and df.format(conta.amortizacaoMensal) != 'R$ 0,00') ? df.format(conta.amortizacaoMensal) : '-'}"></td>
+            <td colspan="1" th:text="${conta.tipo == 'AMORTIZAVEL' or (conta.tipo != 'AMORTIZAVEL' and df.format(conta.amortizacaoAcumulada) != 'R$ 0,00') ? df.format(conta.amortizacaoAcumulada) : '-'}"></td>
+            <td colspan="1" th:text="${df.format(conta.valorLiquido)}"></td>
+        </tr>
+        <tr>
+            <td colspan="4" class="footer-tabela">Total do órgão:</td>
+            <td colspan="1" class="footer-tabela" th:text="${relatorio.totalOrgaos}"></td>
+            <td colspan="1" class="footer-tabela" th:text="${df.format(relatorio.totalValorAquisicao)}"></td>
+            <td colspan="1" class="footer-tabela" th:text="${relatorio.temContaContabilAmortizavel  or (!relatorio.temContaContabilAmortizavel  and df.format(conta.totalAmortizacaoMensal) != 'R$ 0,00') ? df.format(relatorio.totalAmortizacaoMensal) : '-'}"></td>
+            <td colspan="1" class="footer-tabela" th:text="${relatorio.temContaContabilAmortizavel  or (!relatorio.temContaContabilAmortizavel  and df.format(conta.totalAmortizacaoAcumulada) != 'R$ 0,00') ? df.format(relatorio.totalAmortizacaoAcumulada) : '-'}"></td>
+            <td colspan="1" class="footer-tabela" th:text="${df.format(relatorio.totalValorLiquido)}"></td>
+        </tr>
+    </table>
+
+</body>
+</html>

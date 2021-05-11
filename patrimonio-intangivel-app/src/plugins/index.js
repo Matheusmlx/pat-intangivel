@@ -1,0 +1,7 @@
+import './i18n'
+import './vuex'
+import './vue-router'
+import './vuetify'
+import './vee-validate'
+import './loki'
+import './vue-the-mask'

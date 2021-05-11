@@ -1,0 +1,10 @@
+server:
+  port: ${port:0}
+  max-http-header-size: 140000
+spring:
+  cloud:
+    config:
+      uri: ${HAL_CONFIG_URL}
+logging:
+  level:
+    root: INFO

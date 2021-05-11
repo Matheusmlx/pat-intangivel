@@ -1,0 +1,16 @@
+[
+    {
+        "key": "az.patrimonio-intangivel.codigo-conta-contabil",
+        "value": {
+            "software-desenvolvimento": "124110200",
+            "bens-intangiveis-software": "124110100",
+            "marcas-patentes-industriais": "124210100",
+            "concessao-direitos-uso-comunicacao": "124210200",
+            "direitos-autorais": "124210300",
+            "direitos-recursos-naturais": "124210400",
+            "adiantamento-transferencia-tecnologia": "124210500",
+            "outros-direitos-bens-intangiveis": "124219900"
+
+        }
+    }
+]

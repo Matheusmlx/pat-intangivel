@@ -1,0 +1,21 @@
+.tabela-analitico{
+    border: 1px solid #ccc;
+}
+.tabela-analitico th {
+    background-color: #ebebeb;
+    text-align: left;
+    font-size: 8px;
+    padding: 8px;
+}
+.tabela-analitico th, .tabela-analitico td {
+    font-size: 8px !important;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+.footer-tabela{
+    background-color: #ebebeb;
+    text-align: left;
+    font-size: 8px !important;
+    padding: 8px;
+    font-weight: bold;
+}

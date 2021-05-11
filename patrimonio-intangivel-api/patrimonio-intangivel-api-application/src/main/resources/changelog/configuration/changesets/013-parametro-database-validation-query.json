@@ -1,0 +1,6 @@
+[
+    {
+        "key": "spring.datasource.hikari.connection-test-query",
+        "value": "${DATABASE_VALIDATION_QUERY}"
+    }
+]

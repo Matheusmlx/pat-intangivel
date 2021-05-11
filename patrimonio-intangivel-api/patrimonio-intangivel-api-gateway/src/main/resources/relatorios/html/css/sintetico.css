@@ -1,0 +1,24 @@
+.tabela-sintetico{
+    border: 1px solid #ccc;
+}
+.tabela-sintetico th {
+    background-color: #ebebeb;
+    text-align: left;
+    font-size: 8px;
+    padding: 8px;
+}
+
+
+
+.tabela-sintetico th, .tabela-sintetico td {
+    font-size: 8px !important;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+.footer-tabela{
+    background-color: #ebebeb;
+    text-align: left;
+    font-size: 8px !important;
+    padding: 8px;
+    font-weight: bold;
+}

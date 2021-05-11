@@ -1,0 +1,14 @@
+[
+    {
+        "key": "hal.auditlog.enabled",
+        "value": true
+    },
+    {
+        "key": "rabbitmq.host",
+        "value": "rabbitmq"
+    },
+    {
+        "key": "rabbitmq.port",
+        "value": 5672
+    }
+]

@@ -1,0 +1,6 @@
+[
+    {
+        "key": "spring.jpa.show-sql",
+        "value": false
+    }
+]

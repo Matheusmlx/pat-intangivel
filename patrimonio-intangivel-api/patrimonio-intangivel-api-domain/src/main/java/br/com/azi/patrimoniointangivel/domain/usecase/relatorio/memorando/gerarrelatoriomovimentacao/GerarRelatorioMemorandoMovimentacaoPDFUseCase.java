@@ -1,0 +1,5 @@
+package br.com.azi.patrimoniointangivel.domain.usecase.relatorio.memorando.gerarrelatoriomovimentacao;
+
+public interface GerarRelatorioMemorandoMovimentacaoPDFUseCase {
+    GerarRelatorioMemorandoMovimentacaoPDFOutputData executar(GerarRelatorioMemorandoMovimentacaoPDFInputData inputData);
+}

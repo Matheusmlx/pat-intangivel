@@ -1,0 +1,53 @@
+.tabela-memorando{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ccc;
+}
+
+.tabela-memorando td{
+    font-size: 10px!important;
+    padding: 5px;
+}
+
+.titulos p {
+    margin: 0;
+    font-size: 12px !important;
+}
+
+.tabela-memorando th {
+    background-color: #ebebeb;
+    text-align: left;
+    font-size: 10px;
+    padding: 4px;
+    border-bottom: 1px solid #ccc;
+}
+
+.assinatura {
+    margin-top: 50%;
+    height: 50px;
+}
+
+.assinatura td{
+    font-size: 12px!important;
+    padding: 5px;
+}
+
+.logo-contabil{
+    margin-top: 15%;
+    position: absolute;
+    width:62%;
+}
+
+.logo-contabil img{
+    width:160%;
+    height:140%;
+}
+
+.mensagem-rodape{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+

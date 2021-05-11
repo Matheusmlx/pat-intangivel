@@ -1,0 +1,9 @@
+[
+    {
+        "key": "az.patrimonio-intangivel.rotulos-personalizados.i18n.DADOS_DE_ENTRADA_EDICAO.campos.dataAtivacao",
+        "value": {
+                "nome": "Data de Ativação",
+                "tooltip": "O prazo para cadastros retroativos é limitado, finalize seu cadastro o quanto antes. Após o limite, cadastros retroativos não serão permitidos e esse campo estará bloqueado. Além disso, caso seu ativo tenha entrado em uso antes de janeiro/2020, informar nesse campo a data 01/01/2020."
+        }
+    }
+]

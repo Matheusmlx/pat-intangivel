@@ -1,0 +1,87 @@
+<!DOCTYPE>
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Inventário Analítico de Intangíveis</title>
+
+    <link rel="stylesheet" type="text/css" media="all" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../css/styleAnalitico.css"/>
+</head>
+
+<body>
+
+<div class="header" th:include="${templateHeader}"></div>
+
+<div class="titulos">
+    <h1 class="titulo">
+        <strong>Inventário Analítico de Intangíveis</strong>
+    </h1>
+    <p th:text="${relatorio.nomeOrgao}"></p>
+    <p th:text="${relatorio.dataRelatorio}"></p>
+</div>
+
+
+<th:block th:each="conta : ${relatorio.contasContabeis}">
+    <table class="tabela-analitico">
+
+        <thead>
+        <strong> <th colspan="8" th:text="${conta.descricao}"></th> </strong>
+        <tr>
+            <td><strong> N° Patrimônio </strong></td>
+            <td><strong> Patrimônio </strong></td>
+            <td><strong> Tipo </strong></td>
+            <td><strong> Amortizável </strong></td>
+            <td><strong> Valor Entrada </strong></td>
+            <td><strong> Amort.Mensal</strong></td>
+            <td><strong> Amort.Acumulada </strong></td>
+            <td><strong> Valor Líquido</strong></td>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="patrimonio : ${conta.patrimonios}">
+            <td colspan="1" style="width: 10%" th:text="${patrimonio.numero}"></td>
+            <td colspan="1" style="width: 20%" th:text="${patrimonio.nome}"></td>
+            <td colspan="1" style="width: 10%" th:text="${patrimonio.tipo}"></td>
+            <td colspan="1" style="width: 10%" th:text="${patrimonio.amortizavel} == true ? 'Sim' : 'Não'"></td>
+            <td colspan="1" style="width: 12.5%" th:text="${df.format(patrimonio.valorAquisicao)}"></td>
+            <td colspan="1" style="width: 12.5%" th:text="${patrimonio.amortizavel} == true ? ${df.format(patrimonio.valorAmortizadoMensal)} : '-'"></td>
+            <td colspan="1" style="width: 12.5%" th:text="${patrimonio.amortizavel} == true ? ${df.format(patrimonio.valorAmortizadoAcumulado)} : '-'"></td>
+            <td colspan="1" style="width: 12.5%" th:text="${df.format(patrimonio.valorLiquido)}"></td>
+        </tr>
+        </tbody>
+
+        <tfoot>
+        <tr>
+            <strong> <td colspan="7" style="width: 10%" >Total de Patrimônios da Conta:</td> </strong>
+            <strong> <td colspan="1" style="width: 40%" th:text="${conta.totalDeBens} > 1 ? | ${conta.totalDeBens} Patrimônios | : | ${conta.totalDeBens} Patrimônio |"> </td> </strong>
+        </tr>
+        <tr>
+            <strong> <td colspan="4" style="width: 10%" >Total da Conta:</td> </strong>
+            <strong> <td colspan="1" setyle="width: 12.5%" th:text="${df.format(conta.valorAquisicao)}"></td> </strong>
+            <strong> <td colspan="1" style="width: 12.5%" th:text="${conta.amortizavel} ? ${df.format(conta.amortizacaoMensal)} : '-'"></td> </strong>
+            <strong> <td colspan="1" style="width: 12.5%" th:text="${conta.amortizavel} ? ${df.format(conta.amortizacaoAcumulada)} : '-'"></td> </strong>
+            <strong> <td colspan="1" style="width: 12.5%" th:text="${df.format(conta.valorLiquido)}"></td> </strong>
+        </tr>
+        </tfoot>
+    </table>
+    <br>
+</th:block>
+
+<table class="tabela-analitico">
+    <tr>
+        <th colspan="7" > Total de Patrimônios do Órgão: </th>
+        <th colspan="1"  style="width: 14.5%" th:text="${relatorio.totalDeBens}"> </th>
+    </tr>
+    <tr>
+        <th colspan="4" > Total do Órgão: </th>
+        <th colspan="1"  style="width: 12.0%" th:text="${df.format(relatorio.totalValorAquisicao)}"> </th>
+        <th colspan="1"  style="width: 12.0%" th:text="${df.format(relatorio.totalAmortizacaoMensal)}"> </th>
+        <th colspan="1"  style="width: 12.0%" th:text="${df.format(relatorio.totalAmortizacaoAcumulada)}"> </th>
+        <th colspan="1"  style="width: 13.5%" th:text="${df.format(relatorio.totalValorLiquido)}"> </th>
+    </tr>
+</table>
+</body>
+</html>

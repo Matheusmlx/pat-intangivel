@@ -1,0 +1,19 @@
+[
+    {
+        "key": "az.patrimonio-intangivel.integracao.sistema-de-relatorios",
+        "value": "hal-report"
+    },
+    {
+        "key": "az.patrimonio-intangivel.relatorio",
+        "value": {
+            "header": {
+                "titulo1": "GOVERNO DO ESTADO DE MATO GROSSO DO SUL",
+                "titulo2": "Secretaria de Estado de Administração e Desburocratização - SAD"
+            },
+            "footer": {
+                "rodape1": "Parque dos Poderes - Bloco I - Pavimento Superior - Campo Grande/MS - CEP 79031-902",
+                "rodape2": "Telefone: (0xx67) 3318-1377 - Fax: (0xx67) 3318-1352"
+            }
+        }
+    }
+]

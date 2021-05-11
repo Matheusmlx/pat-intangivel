@@ -1,0 +1,78 @@
+application:
+  name: patrimonio-intangivel
+  version: latest
+logging:
+  path: target
+hal:
+  config:
+    migration:
+      enabled: false
+  liquibase:
+    schemas:
+      - comum
+      - comum_siga
+      - comum_pat
+      - pat_intangivel
+
+spring:
+  application:
+    name: patrimonio-intangivel
+  datasource:
+    driver-class-name: org.h2.Driver
+    name: az
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: ''
+    initial-size: 5
+    max-active: 30
+    max-idle: 10
+    max-wait: 60000
+    min-evictable-idle-time-millis: 60000
+    min-idle: 5
+    testOnBorrow: false
+    testWhileIdle: false
+    time-between-eviction-runs-millis: 5000
+    validationQuery: SELECT 1
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+  liquibase:
+    change-log: "classpath:/changelog/database/master.xml"
+    enabled: true
+  profiles:
+    default: test
+  session:
+    store-type: none
+
+az:
+    patrimonio-intangivel:
+        integracao:
+            sistema-de-arquivos: "hal"
+            sistema-de-fornecedores: "efornecedor"
+            hal:
+                url: "http://localhost:8022/setup/hal"
+                repository: "repo1:patrimoniointangivel"
+            efornecedor:
+                url: "http://localhost:8023/efornecedor/efcaz-api"
+            hal-config:
+                url: "http://localhost:8024/hal-config/settings"
+
+        codigo-conta-contabil:
+            software-desenvolvimento: "124110200"
+            bens-intangiveis-software: "124110100"
+            marcas-patentes-industriais: "124210100"
+            concessao-direitos-uso-comunicacao: "124210200"
+            direitos-autorais: "124210300"
+            direitos-recursos-naturais: "124210400"
+            adiantamento-transferencia-tecnologia: "124210500"
+            outros-direitos-bens-intangiveis: "124219900"
+
+        vida-util-sem-licenca: "36"
+        quantidade-digitos-numero-patrimonio: "10"
+        quantidade-digitos-codigo-movimentacao: "5"
+        cron-dia-agendamento-amortizacao: "-"
+        cron-agendamento-amortizacao: "-"

@@ -1,0 +1,26 @@
+[
+    {
+        "key": "az.patrimonio-intangivel.rotulos-personalizados.i18n.MOVIMENTACAO",
+        "value": {
+            "campos": {
+                "orgaoDestino": {
+                    "nome": "Órgão Destino"
+                },
+                "motivoObs": {
+                    "nome": "Motivo/Obs."
+                },
+                "tooltip": {
+                    "tooltip": "Finalize a última movimentação em elaboração ou exclua ela para criar nova movimentação"
+                },
+                "numeroNL": {
+                    "nome": "Número NL",
+                    "obrigatorio": false
+                },
+                "dataNL": {
+                    "nome": "Data NL",
+                    "obrigatorio": false
+                }
+            }
+        }
+    }
+]

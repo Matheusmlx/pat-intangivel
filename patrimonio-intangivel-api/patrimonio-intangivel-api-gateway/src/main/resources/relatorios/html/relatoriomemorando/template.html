@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Memorando de Ativação de Patrimônio</title>
+
+    <link rel="stylesheet" type="text/css" media="all" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../css/memorando.css"/>
+</head>
+
+<body>
+<div class="header" th:include="${templateHeader}"></div>
+
+<div class="titulos">
+    <h1 class="titulo">
+        <strong>Memorando de Ativação de Patrimônio</strong>
+    </h1>
+    <p th:text="${relatorio.orgao.nome}"></p>
+    <p th:text="${relatorio.mesAno}"></p>
+</div>
+
+<div class="logo-contabil">
+    <img th:src=" ${relatorio.patrimonio.numero} == '-' ? |data:image/png;base64,${logoContabil}| : ''"
+         alt="Documento sem valor contábil"/>
+</div>
+
+<h3>DADOS GERAIS</h3>
+<table class="tabela-memorando" cellpadding="2">
+    <tr>
+        <td><b>N° Memorando:</b> <span th:text="${relatorio.numeroAno}"></span></td>
+        <td><b>Setor:</b> <span th:text="${relatorio.setor.nome}"></span></td>
+        <td><b>Reconhecimento:</b> <span th:text="${relatorio.reconhecimento.nome}"></span></td>
+    </tr>
+    <tr>
+        <td><b>N° Patrimônio:</b> <span th:text="${relatorio.patrimonio.numero}"></span></td>
+        <td><b>Nome Intangível:</b> <span th:text="${relatorio.patrimonio.nome}"></span></td>
+        <td><b>Fornecedor:</b> <span th:text="${relatorio.fornecedor.nome}"></span></td>
+    </tr>
+    <tr>
+        <td><b>N° da NL:</b> <span th:text="${relatorio.patrimonio.numeroNL}"></span></td>
+        <td><b>Data da NL:</b> <span th:text="${relatorio.patrimonio.dataNL}"></span></td>
+        <td><b>Data Ativação:</b> <span th:text="${relatorio.patrimonio.dataAtivacao}"></span></td>
+    </tr>
+    <tr>
+        <td colspan="3"><b>Descrição</b> <span th:text="${relatorio.patrimonio.descricao}"></span></td>
+    </tr>
+</table>
+
+<h3>DADOS CONTÁBEIS</h3>
+<table class="tabela-memorando">
+    <tr>
+        <td colspan="3"><b>Conta Contábil:</b> <span th:text="${relatorio.contaContabil.nome}"></span></td>
+    </tr>
+    <tr>
+        <td colspan="3"><b>Valor Aquisição:</b>
+            <span
+                th:text=" ${relatorio.patrimonio.valorAquisicao == null or df.format(relatorio.patrimonio.valorAquisicao) == 'R$ 0,00'? '-' : df.format(relatorio.patrimonio.valorAquisicao)}"></span>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <b>Valor de Entrada:</b>
+            <span th:text=" ${relatorio.patrimonio.valorEntrada == null or df.format(relatorio.patrimonio.valorEntrada) == 'R$ 0,00'? '-' : df.format(relatorio.patrimonio.valorEntrada)}"></span>
+
+            </span>
+        </td>
+    </tr>
+</table>
+
+<table class="assinatura">
+    <tr>
+        <td align="center">______________________________</td>
+        <td align="center">______________________________</td>
+        <td align="center">______________________________</td>
+    </tr>
+    <tr>
+        <td align="center">Nome/Matrícula</td>
+        <td align="center">Nome/Matrícula</td>
+        <td align="center">Nome/Matrícula</td>
+    </tr>
+    <tr>
+        <td align="center">______________________________</td>
+        <td align="center">______________________________</td>
+        <td align="center">______________________________</td>
+    </tr>
+    <tr>
+        <td align="center">Data</td>
+        <td align="center">Data</td>
+        <td align="center">Data</td>
+    </tr>
+    <tr>
+        <td align="center">______________________________</td>
+        <td align="center">______________________________</td>
+        <td align="center">______________________________</td>
+    </tr>
+    <tr>
+        <td align="center">Assinatura</td>
+        <td align="center">Assinatura</td>
+        <td align="center">Assinatura</td>
+    </tr>
+</table>
+
+</body>
+</html>
